@@ -25,7 +25,7 @@
             </li>
             <li class="nav-item" style="margin-top:0px;">
             {% if user.is_authenticated %}
-                <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Submit Project</button>
+                <a class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" href="{%url 'new-project' %}">Submit Project</a>
             {% endif %}
             </li>
             <li class="nav-item" style="margin-right:20px;">
