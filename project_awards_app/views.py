@@ -22,3 +22,4 @@ def new_project(request):
     else:
         form = ProjectForm()
     return render(request,"Moringa_Project_Awards/new_project.html",{"form":form})
+

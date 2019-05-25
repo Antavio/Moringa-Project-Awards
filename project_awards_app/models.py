@@ -28,4 +28,19 @@ class Project(models.Model):
         all_images = Project.objects.all()
         return all_images
     
+class Profile(models.Model):
+    profile_picture = models.ImageField(upload_to='prof_pics/',blank=True)
+    prof_user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    bio = models.TextField()
+    profile_Id = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.bio
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    
