@@ -14,10 +14,18 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-id']
+
     def save_project(self):
         self.save()
 
     def delete_project(self):
         self.delete()
+
+    @classmethod
+    def fetch_all_images(cls):
+        all_images = Project.objects.all()
+        return all_images
     
 
