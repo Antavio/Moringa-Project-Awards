@@ -1,20 +1,19 @@
 {% extends 'Moringa_Project_Awards/base.html' %}
 {% block content %}
 <div class="container-fluid">
-    <div style="margin:10px;">
-        <h4 class="text-center">Sites of the day</4>
+    <div>
+        <h4 class="text-center heading">Sites of the day</4>
     </div>
     <div class="row">
         {% for image in all_images%}
 
-        <div class="col-md-4 main-page d-flex" style=" margin-top: 10px;">
+        <div class="col-md-4 main-page d-flex" style=" margin-top: 5px;">
             <div class="card card-cascade wider flex-fill ">
 
                 <!-- Card image -->
                 <div class="view view-cascade overlay">
                     <a data-toggle="modal" data-target="#{{image.id}}"><img class="card-img-top"
                             src="{{image.image.url}}" alt="{{image.title}}"></a>
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{image.id}}">Expand photo</button> -->
                 </div>
                 <!--Card content-->
                 <div class="card-body">
@@ -24,8 +23,8 @@
                     <!--Text-->
                     <p class="card-text">{{image.details}}</p>
                     <p><a href="{{image.link}}">Live Project Link</a></p>                    
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-danger btn-md">Read more</button>
+                    
+                    <a href="{% url 'project_review' image.pk %}" class="btn btn-danger btn-md">Review Project</a>
 
                 </div>
             </div>

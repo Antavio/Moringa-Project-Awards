@@ -77,7 +77,9 @@ def search_project(request):
         message = "No search results yet!"
         return render (request, 'search/search.html', {"message": message})
 
-def find_user(request,username):
-    user = User.objects.get(username = username)
-    profile = Profile.objects.get(user_id = user)
-    projects = Projects.objects.filter(profile_id = user)
+def project_review(request,project_id):
+    try:
+        single_project = Project.objects.get(id=project_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'Moringa_Project_Awards/project_review.html',{"single_project":single_project})

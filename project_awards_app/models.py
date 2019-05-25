@@ -33,8 +33,15 @@ class Project(models.Model):
         project = cls.objects.filter(title__icontains=search_term)
         return project
 
+    @classmethod
+    def get_single_project(cls, project):
+        project = cls.objects.get(id=project)
+        return project
+
     class Meta:
         ordering = ['-id']
+
+    
     
 class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='prof_pics/',blank=True)

@@ -2,11 +2,11 @@
 {% block content %}
 <div class="container-fluid">
 
-  <div class="row" style="margin-left:20px;">
+  <div class="row heading" style="margin-left:20px;">
     {% if projects%}
-    <h2>Found {{ projects|length }} of searched term {{message}}</h2>
+    <h2>Found {{ projects|length }} projects of searched term {{message}}</h2>
     {% else %}
-    <h2> Found no articles for the search term {{message}}</h2>
+    <h2> Found no projects for the search term {{message}}</h2>
     {% endif %}
 
   </div>
@@ -30,7 +30,7 @@
           <p class="card-text">{{project.details}}</p>
           <p><a href="{{project.link}}">Live Project Link</a></p>
           <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-          <button type="button" class="btn btn-danger btn-md">Read more</button>
+          <button type="button" class="btn btn-danger btn-md">Review</button>
 
         </div>
       </div>
