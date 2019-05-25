@@ -23,14 +23,18 @@
                     <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
                 </form>
             </li>
-            <li class="nav-item" style="margin-top:0px;">
             {% if user.is_authenticated %}
-                <a class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" href="{%url 'new-project' %}">Submit Project</a>
-            {% endif %}
+            <li class="nav-item" style="margin-top:0px;">
+                <a class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" href="{%url 'new-project' %}">Submit
+                    Project</a>
             </li>
+            {% else %}
             <li class="nav-item" style="margin-right:20px;">
-                <a class="nav-link btn btn-outline-white btn-sm my-2 my-sm-0 ml-3" href="/accounts/register/">Sign Up</a>
+                <a class="nav-link btn btn-outline-white btn-sm my-2 my-sm-0 ml-3" href="/accounts/register/">Sign
+                    Up</a>
             </li>
+            {% endif %}
+
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -47,8 +51,8 @@
                     {% else %}
                     <a class="dropdown-item" href="/accounts/login">Login</a>
                     {% endif %}
-                    
-                    
+
+
                 </div>
             </li>
         </ul>
