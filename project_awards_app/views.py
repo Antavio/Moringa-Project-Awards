@@ -61,4 +61,23 @@ def profile(request):
     except ObjectDoesNotExist:
         return redirect('new_profile')
 
-    return render(request,'profile/profile.html',{'profile':prof,'projects':projects,'current_user':current_user})
+    return render(request,'profile/profile.html',{'profile':prof,'projects':projects})
+
+
+
+def search_project(request):
+    if 'project' in request.GET and request.GET ["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Project.search_project_by_title(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'search/search.html', {"message":message, "projects":searched_projects})
+
+    else:
+        message = "No search results yet!"
+        return render (request, 'search/search.html', {"message": message})
+
+def find_user(request,username):
+    user = User.objects.get(username = username)
+    profile = Profile.objects.get(user_id = user)
+    projects = Projects.objects.filter(profile_id = user)
