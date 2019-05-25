@@ -32,6 +32,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='prof_pics/',blank=True)
     prof_user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     bio = models.TextField()
+    contact_info = models.CharField(max_length=200,blank=True)
     profile_Id = models.IntegerField(default=0)
 
     def __str__(self):
