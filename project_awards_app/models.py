@@ -27,6 +27,14 @@ class Project(models.Model):
     def fetch_all_images(cls):
         all_images = Project.objects.all()
         return all_images
+
+    @classmethod
+    def search_project_by_title(cls,search_term):
+        project = cls.objects.filter(title__icontains=search_term)
+        return project
+
+    class Meta:
+        ordering = ['-id']
     
 class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='prof_pics/',blank=True)
