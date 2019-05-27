@@ -4,6 +4,9 @@ from .models import Project,Profile
 from .forms import ProjectForm,ProfileForm,VoteForm
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer
 # Create your views here.
 def home(request):
     all_projects = Project.fetch_all_images()
@@ -106,3 +109,9 @@ def project_review(request,project_id):
     except DoesNotExist:
         raise Http404()
     return render(request,'Moringa_Project_Awards/project_review.html',{"vote_form":vote_form,"single_project":single_project,"average_score":average_score})
+
+class ProfileList(APIView):
+    def get(self,request,format=None):
+        complete_profile = Profile.objects.all()
+        serializers = ProfileSerializer(complete_profile, many=True)
+        return Response(serializers.data)
