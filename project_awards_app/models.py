@@ -53,6 +53,7 @@ class Profile(models.Model):
     bio = models.TextField()
     contact_info = models.CharField(max_length=200,blank=True)
     profile_Id = models.IntegerField(default=0)
+    all_projects = models.ForeignKey('Project',on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.bio
@@ -67,3 +68,7 @@ class Profile(models.Model):
         self.bio = bio
         self.save()
     
+
+
+
+

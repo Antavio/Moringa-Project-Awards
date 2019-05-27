@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer
+from .serializer import ProfileSerializer,ProjectSerializer
 # Create your views here.
 def home(request):
     all_projects = Project.fetch_all_images()
@@ -114,4 +114,10 @@ class ProfileList(APIView):
     def get(self,request,format=None):
         complete_profile = Profile.objects.all()
         serializers = ProfileSerializer(complete_profile, many=True)
+        return Response(serializers.data)
+
+class ProjectList(APIView):
+    def get(self,request,format=None):
+        projects = Project.objects.all()
+        serializers = ProjectSerializer(projects, many=True)
         return Response(serializers.data)
