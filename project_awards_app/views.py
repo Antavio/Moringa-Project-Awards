@@ -102,7 +102,7 @@ def project_review(request,project_id):
                     single_project.content = (single_project.content + int(request.POST['usability']))/2
 
                 single_project.save()
-                return redirect('project_review')
+                return redirect('home')
         else:
             vote_form = VoteForm()
 
