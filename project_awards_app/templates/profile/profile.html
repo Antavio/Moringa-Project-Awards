@@ -9,15 +9,12 @@
             <img src="/media/prof_pics/Avatar.png" alt="No Profile Pic">
             {% endif %}
         </div>
-        <div class="">
-            <div class="col-md-4">
-                <h3 style="margin-left:400px;margin-top:30px;">{{user}}</h3>
-            </div>
-            <div class="col-md-4"><a href="{% url 'edit_profile' %}" class="btn btn-light"
-                    style="margin-left:400px;margin-top:25px;">Edit
-                    Profile</a></div>
-                
-        </div>
+        
+            <div class="col-md-4" style="margin-left:200px;margin-top:30px;">                
+                <a href="{% url 'edit_profile' %}" class="btn btn-light">Edit Profile</a>
+                <h3 >{{user}}</h3>
+            </div>                
+      
         <div class="col-md-2">
             <p style="margin-left:20px;margin-top: 30px;"><strong>Bio: </strong>{{profile.bio}}</p>
             <p style="margin-left:20px;"><strong>Contact Info: </strong>{{profile.contact_info}}</p>
