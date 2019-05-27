@@ -4,6 +4,7 @@
 [Anthony Njuguna Kiarie](https://github.com/Antavio)
 
 ## Description
+An application that allows a user to post their projects  they have  created and get them reviewed by fellow peers.
 
 ## Behaviour Driven Development(BDD)
 | Behaviour                                                                                    | Input                                       | Output                                                                                             |
@@ -51,7 +52,7 @@ The different technologies that were used to develop this program include:
 ```
 
 ### Link to live site
-Here is a link to the live site
+Here is a link to the live site https://moringa-awwwards.herokuapp.com/
 
 ### Contact Me
 If you have any suggestions, additions or modifications on this project you can reach me via my email: njuguna13@gmail.com
