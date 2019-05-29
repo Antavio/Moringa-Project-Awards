@@ -102,11 +102,11 @@ def project_review(request,project_id):
                     single_project.content = (single_project.content + int(request.POST['usability']))/2
 
                 single_project.save()
-                return redirect('home')
+                return redirect('project_review',project_id)
         else:
             vote_form = VoteForm()
 
-    except DoesNotExist:
+    except Exception as  e:
         raise Http404()
     return render(request,'Moringa_Project_Awards/project_review.html',{"vote_form":vote_form,"single_project":single_project,"average_score":average_score})
 
